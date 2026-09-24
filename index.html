@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whitepaper</title>
+  <meta name="description" content="Download the whitepaper.">
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #14171f;
+      --muted: #5b6272;
+      --line: #e3e6ec;
+      --accent: #2f5bea;
+      --accent-soft: #eaf0ff;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    header { background: var(--surface); border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; letter-spacing: -0.01em; }
+    .brand small { font-weight: 400; color: var(--muted); margin-left: 8px; }
+
+    .hero { padding: 56px 0 72px; }
+    .grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; gap: 32px; } }
+
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--accent); background: var(--accent-soft);
+      padding: 4px 10px; border-radius: 999px;
+    }
+    h1 { font-size: clamp(30px, 4.5vw, 44px); line-height: 1.15; letter-spacing: -0.02em; margin: 16px 0 12px; }
+    .lede { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
+
+    .bullets { list-style: none; padding: 0; margin: 0 0 32px; }
+    .bullets li { position: relative; padding-left: 30px; margin-bottom: 12px; }
+    .bullets li::before {
+      content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--accent-soft);
+      box-shadow: inset 0 0 0 5px var(--accent);
+    }
+
+    .for { border-top: 1px solid var(--line); padding-top: 20px; }
+    .for h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 12px; }
+    .personas { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .personas li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: 14px; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; box-shadow: 0 8px 24px rgba(20, 23, 31, 0.06);
+    }
+    .card h2 { font-size: 20px; margin: 0 0 4px; }
+    .card .meta { color: var(--muted); font-size: 14px; margin: 0 0 20px; }
+    .form-placeholder {
+      border: 1px dashed var(--line); border-radius: 8px; padding: 20px;
+      color: var(--muted); font-size: 14px; background: var(--bg);
+    }
+    .form-placeholder code { font-size: 13px; }
+
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!--
+    All company, product, persona, and offer text is rendered from
+    config/company.yml at load time. Nothing company-specific is hardcoded here.
+  -->
+  <header>
+    <div class="wrap">
+      <div class="brand"><span data-bind="company.name"></span><small data-bind="product.name"></small></div>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="wrap grid">
+      <section>
+        <span class="eyebrow">Free whitepaper</span>
+        <h1 data-bind="offer.title">Whitepaper</h1>
+        <p class="lede" data-bind="offer.subtitle"></p>
+        <ul class="bullets" id="offer-bullets"></ul>
+        <div class="for">
+          <h2>Written for</h2>
+          <ul class="personas" id="personas"></ul>
+        </div>
+      </section>
+
+      <aside class="card" id="download">
+        <h2>Get your copy</h2>
+        <p class="meta" id="offer-meta">PDF</p>
+        <div id="hs-form"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span data-bind="company.name"></span> is a fictional company created for a portfolio demo.
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script>
+    (function () {
+      var CONFIG_URL = 'config/company.yml';
+      var PRODUCT_INDEX = 0; // product line 1
+      var FORM_NAME = 'whitepaper';
+      var GA_FIELD = 'ga_client_id';
+
+      window.dataLayer = window.dataLayer || [];
+
+      // ---- GA4 client_id from the _ga cookie --------------------------------
+      // _ga looks like "GA1.1.1234567890.1700000000"; client_id is the last two parts.
+      function getGaClientId() {
+        var m = document.cookie.match(/(?:^|;\s*)_ga=([^;]+)/);
+        if (!m) return null;
+        var parts = decodeURIComponent(m[1]).split('.');
+        return parts.length >= 4 ? parts.slice(-2).join('.') : null;
+      }
+
+      // HubSpot forms manage input state internally, so set the value through the
+      // native setter and fire input/change events so it is included on submit.
+      function setFieldValue(form, name, value) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        if (!input) return false;
+        var setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;
+        setter.call(input, value);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        return true;
+      }
+
+      // GTM/GA4 load asynchronously, so the _ga cookie may not exist yet when the
+      // form is ready. Retry for up to ~10 seconds.
+      function fillGaClientId(form, attempt) {
+        attempt = attempt || 0;
+        var cid = getGaClientId();
+        if (cid) {
+          if (!setFieldValue(form, GA_FIELD, cid)) {
+            console.warn('[b2b-demo] Hidden field "' + GA_FIELD + '" not found on the HubSpot form.');
+          }
+          return;
+        }
+        if (attempt < 20) {
+          setTimeout(function () { fillGaClientId(form, attempt + 1); }, 500);
+        } else {
+          console.warn('[b2b-demo] _ga cookie not found; ' + GA_FIELD + ' left blank.');
+        }
+      }
+
+      // ---- HubSpot v2 form embed --------------------------------------------
+      function isPlaceholder(v) {
+        return !v || /^(PORTAL_ID|FORM_ID)$/.test(String(v));
+      }
+
+      function showFormPlaceholder() {
+        document.getElementById('hs-form').innerHTML =
+          '<div class="form-placeholder">HubSpot form goes here. Set ' +
+          '<code>hubspot_portal_id</code> and <code>hubspot_form_id</code> in ' +
+          '<code>config/company.yml</code>.</div>';
+      }
+
+      function loadHubSpotForm(tracking) {
+        var portalId = tracking.hubspot_portal_id;
+        var formId = tracking.hubspot_form_id;
+        var region = tracking.hubspot_region || 'na1';
+
+        if (isPlaceholder(portalId) || isPlaceholder(formId)) {
+          showFormPlaceholder();
+          return;
+        }
+
+        var host = region === 'na1' ? 'js.hsforms.net' : 'js-' + region + '.hsforms.net';
+        var s = document.createElement('script');
+        s.src = 'https://' + host + '/forms/embed/v2.js';
+        s.charset = 'utf-8';
+        s.onload = function () {
+          hbspt.forms.create({
+            region: region,
+            portalId: String(portalId),
+            formId: String(formId),
+            target: '#hs-form',
+            onFormReady: function ($form) {
+              // $form is a jQuery object if jQuery is on the page, otherwise an HTMLFormElement.
+              var form = $form && $form.jquery ? $form[0] : $form;
+              fillGaClientId(form);
+            },
+            onFormSubmitted: function () {
+              window.dataLayer.push({ event: 'hubspot_form_submit', form_name: FORM_NAME });
+            }
+          });
+        };
+        document.body.appendChild(s);
+      }
+
+      // ---- Render page content from config ------------------------------------
+      function setText(key, value) {
+        document.querySelectorAll('[data-bind="' + key + '"]').forEach(function (el) {
+          el.textContent = value || '';
+        });
+      }
+
+      function fillList(id, items) {
+        var ul = document.getElementById(id);
+        ul.innerHTML = '';
+        (items || []).forEach(function (text) {
+          var li = document.createElement('li');
+          li.textContent = text;
+          ul.appendChild(li);
+        });
+      }
+
+      function render(cfg) {
+        var company = cfg.company || {};
+        var product = (cfg.product_lines || [])[PRODUCT_INDEX] || {};
+        var offer = product.offer || {};
+
+        setText('company.name', company.name);
+        setText('product.name', product.name);
+        setText('offer.title', offer.title);
+        setText('offer.subtitle', offer.subtitle);
+        fillList('offer-bullets', offer.bullets);
+        fillList('personas', (product.personas || []).map(function (p) { return p.title; }));
+
+        document.getElementById('offer-meta').textContent =
+          'PDF' + (offer.pages ? ' · ' + offer.pages + ' pages' : '');
+        document.title = [offer.title, company.name].filter(Boolean).join(' | ') || 'Whitepaper';
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc && offer.subtitle) desc.setAttribute('content', offer.subtitle);
+      }
+
+      fetch(CONFIG_URL, { cache: 'no-cache' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(function (text) {
+          var cfg = jsyaml.load(text);
+          render(cfg);
+          loadHubSpotForm(cfg.tracking || {});
+        })
+        .catch(function (err) {
+          console.error('[b2b-demo] Could not load ' + CONFIG_URL + ':', err);
+          showFormPlaceholder();
+        });
+    })();
+  </script>
+</body>
+</html>

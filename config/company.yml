@@ -1,0 +1,127 @@
+# Company definition for the b2b-demo stack.
+# Everything company-, product-, persona-, and channel-specific lives here.
+# Swap this file to re-skin the demo for a different B2B target.
+# All names below are FICTIONAL.
+
+company:
+  name: Meridian Labs
+  fictional: true
+  tagline: Reliable data and trustworthy AI for regulated enterprises
+  industry: B2B enterprise software
+  sales_motion: account_based
+  avg_sales_cycle_days: 150
+
+product_lines:
+  - id: observe
+    name: Meridian Observe
+    category: Data observability platform
+    description: >-
+      Detects broken pipelines, schema drift, and stale data before it reaches
+      dashboards and models.
+    personas:
+      - id: vp_data_eng
+        title: VP of Data Engineering
+        department: Data & Analytics
+        seniority: vp
+        committee_role: economic_buyer
+        pains:
+          - Incidents discovered by executives instead of the data team
+          - No shared SLAs for critical pipelines
+      - id: analytics_eng_lead
+        title: Analytics Engineering Lead
+        department: Data & Analytics
+        seniority: manager
+        committee_role: technical_evaluator
+        pains:
+          - Hours lost debugging upstream breakages
+          - Test coverage that doesn't catch data freshness issues
+    offer:
+      type: whitepaper
+      slug: data-downtime-playbook
+      title: "The Data Downtime Playbook"
+      subtitle: >-
+        How data teams at regulated enterprises cut incident detection time
+        from days to minutes.
+      bullets:
+        - A five-stage maturity model for data reliability
+        - How to set and report SLAs for critical pipelines
+        - A 90-day rollout plan your platform team can actually run
+      pages: 18
+
+  - id: govern
+    name: Meridian Govern
+    category: AI governance and model risk
+    description: >-
+      Inventories models, tracks lineage, and produces audit-ready evidence
+      for AI regulations and internal model-risk policy.
+    personas:
+      - id: chief_risk_officer
+        title: Chief Risk Officer
+        department: Risk & Compliance
+        seniority: c_level
+        committee_role: economic_buyer
+        pains:
+          - No complete inventory of models in production
+          - Audit preparation is manual and slow
+      - id: head_ml_platform
+        title: Head of ML Platform
+        department: Engineering
+        seniority: director
+        committee_role: champion
+        pains:
+          - Governance checks slow down model releases
+          - Lineage spread across notebooks, registries, and tickets
+    offer:
+      type: whitepaper
+      slug: ai-audit-readiness-guide
+      title: "The AI Audit Readiness Guide"
+      subtitle: >-
+        A practical framework for model inventory, lineage, and evidence
+        collection.
+      bullets:
+        - Building a model inventory that stays current
+        - Mapping controls to common regulatory requirements
+        - Automating evidence collection for audits
+      pages: 22
+
+# Marketing channels. `id` values are canonical keys used in UTMs,
+# HubSpot/Salesforce campaign mapping, and dbt attribution models.
+channels:
+  - id: linkedin
+    label: LinkedIn
+    type: paid
+    utm_source: linkedin
+    utm_medium: paid_social
+  - id: email
+    label: Email
+    type: owned
+    utm_source: hubspot
+    utm_medium: email
+  - id: conference
+    label: Conference
+    type: paid
+    utm_source: event
+    utm_medium: conference
+  - id: webinar
+    label: Webinar
+    type: owned
+    utm_source: webinar
+    utm_medium: webinar
+  - id: organic_search
+    label: Organic Search
+    type: earned
+    utm_source: google
+    utm_medium: organic
+  - id: press
+    label: Press
+    type: earned
+    utm_source: press
+    utm_medium: referral
+
+# Tracking IDs. Placeholders until the accounts are created.
+# These are public client-side IDs, not secrets. Tokens go in .env.
+tracking:
+  gtm_container_id: GTM-XXXXXXX
+  hubspot_portal_id: PORTAL_ID
+  hubspot_region: na1        # na1 or eu1, per the HubSpot account
+  hubspot_form_id: FORM_ID
