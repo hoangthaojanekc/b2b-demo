@@ -1,0 +1,32 @@
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+# GCP service-account key files
+*service-account*.json
+*service_account*.json
+*-key.json
+*_key.json
+*credentials*.json
+gcp-*.json
+keys/
+secrets/
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- dbt ---
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
