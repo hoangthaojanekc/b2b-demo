@@ -124,10 +124,11 @@ channels:
     utm_source: press
     utm_medium: referral
 
-# Tracking IDs. Placeholders until the accounts are created.
-# These are public client-side IDs, not secrets. Tokens go in .env.
+# Tracking IDs. These are public client-side IDs, not secrets. Tokens go in .env.
+# gtm_container_id is also hardcoded in index.html (GTM snippet must be static);
+# keep the two in sync.
 tracking:
-  gtm_container_id: GTM-XXXXXXX
-  hubspot_portal_id: PORTAL_ID
-  hubspot_region: na1        # na1 or eu1, per the HubSpot account
-  hubspot_form_id: FORM_ID
+  gtm_container_id: GTM-TQV8S4ZL
+  hubspot_portal_id: "247505650"
+  hubspot_region: na2        # HubSpot data region; drives the js-<region>.hsforms.net host
+  hubspot_form_id: 1daabe17-a561-4d6a-ad5c-e9e8ae7f8a69
