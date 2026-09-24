@@ -6,83 +6,89 @@
 company:
   name: Meridian Labs
   fictional: true
-  tagline: Reliable data and trustworthy AI for regulated enterprises
-  industry: B2B enterprise software
+  tagline: Data and AI for drug discovery and healthcare benefits
+  industry: Healthcare and life sciences software
   sales_motion: account_based
-  avg_sales_cycle_days: 150
+  sales_cycle_days:        # 6-12 months, lead created to closed-won
+    min: 180
+    max: 365
 
 product_lines:
-  - id: observe
-    name: Meridian Observe
-    category: Data observability platform
+  - id: discover
+    name: Meridian Discover
+    category: Research data and AI platform for drug discovery
     description: >-
-      Detects broken pipelines, schema drift, and stale data before it reaches
-      dashboards and models.
+      Unifies assay, omics, and chemistry data so discovery teams can
+      prioritize targets and compounds faster.
     personas:
-      - id: vp_data_eng
-        title: VP of Data Engineering
-        department: Data & Analytics
+      - id: vp_discovery_research
+        title: VP of Discovery Research
+        segment: biopharma
+        department: Research & Development
         seniority: vp
         committee_role: economic_buyer
         pains:
-          - Incidents discovered by executives instead of the data team
-          - No shared SLAs for critical pipelines
-      - id: analytics_eng_lead
-        title: Analytics Engineering Lead
-        department: Data & Analytics
-        seniority: manager
+          - Research data siloed across ELNs, LIMS, and CRO deliverables
+          - Slow, costly target-to-hit and hit-to-lead cycles
+      - id: principal_scientist
+        title: Principal Scientist, Computational Chemistry
+        segment: biopharma
+        department: Research & Development
+        seniority: individual_contributor
         committee_role: technical_evaluator
         pains:
-          - Hours lost debugging upstream breakages
-          - Test coverage that doesn't catch data freshness issues
+          - More time cleaning data than building models
+          - Models trained on inconsistent assay results
     offer:
       type: whitepaper
-      slug: data-downtime-playbook
-      title: "The Data Downtime Playbook"
+      slug: ai-ready-research-data
+      title: "From Data Silos to Discovery"
       subtitle: >-
-        How data teams at regulated enterprises cut incident detection time
-        from days to minutes.
+        A playbook for AI-ready research data: how discovery teams unify
+        assay, omics, and chemistry data to shorten hit-to-lead cycles.
       bullets:
-        - A five-stage maturity model for data reliability
-        - How to set and report SLAs for critical pipelines
-        - A 90-day rollout plan your platform team can actually run
-      pages: 18
+        - A maturity model for research data readiness
+        - Harmonizing in-house and CRO assay data without rework
+        - Where machine learning helps in early discovery, and where it doesn't
+      pages: 20
 
-  - id: govern
-    name: Meridian Govern
-    category: AI governance and model risk
+  - id: benefits
+    name: Meridian Benefits
+    category: Benefits analytics for health plans and employers
     description: >-
-      Inventories models, tracks lineage, and produces audit-ready evidence
-      for AI regulations and internal model-risk policy.
+      Combines claims, eligibility, and program data to show which health
+      benefits and care programs lower cost and improve outcomes.
     personas:
-      - id: chief_risk_officer
-        title: Chief Risk Officer
-        department: Risk & Compliance
-        seniority: c_level
+      - id: vp_population_health
+        title: VP of Population Health
+        segment: health_plan
+        department: Clinical & Population Health
+        seniority: vp
         committee_role: economic_buyer
         pains:
-          - No complete inventory of models in production
-          - Audit preparation is manual and slow
-      - id: head_ml_platform
-        title: Head of ML Platform
-        department: Engineering
+          - Can't prove the ROI of care management programs
+          - Claims and clinical data live in separate systems
+      - id: director_benefits
+        title: Director of Benefits
+        segment: employer
+        department: HR / Total Rewards
         seniority: director
         committee_role: champion
         pains:
-          - Governance checks slow down model releases
-          - Lineage spread across notebooks, registries, and tickets
+          - Healthcare costs rising with little visibility into drivers
+          - Hard to compare plan and point-solution vendor performance
     offer:
       type: whitepaper
-      slug: ai-audit-readiness-guide
-      title: "The AI Audit Readiness Guide"
+      slug: benefits-roi-report
+      title: "The Benefits ROI Report"
       subtitle: >-
-        A practical framework for model inventory, lineage, and evidence
-        collection.
+        How health plans and self-insured employers measure which benefits
+        and care programs actually reduce cost.
       bullets:
-        - Building a model inventory that stays current
-        - Mapping controls to common regulatory requirements
-        - Automating evidence collection for audits
-      pages: 22
+        - A framework for measuring program ROI from claims data
+        - Benchmarks for common care management and point solutions
+        - Reporting that satisfies both finance and clinical leaders
+      pages: 16
 
 # Marketing channels. `id` values are canonical keys used in UTMs,
 # HubSpot/Salesforce campaign mapping, and dbt attribution models.
